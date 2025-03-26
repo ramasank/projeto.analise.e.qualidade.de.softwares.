@@ -1,0 +1,57 @@
+public class Usuario {
+    private int cod;
+    private String perfil;
+    private boolean presenca;
+    private String nome;
+    private String cpf;
+
+    public int getCod() { return cod; }
+    public void setCod(int cod) { this.cod = cod; }
+
+    public String getPerfil() { return perfil; }
+    public void setPerfil(String perfil) { this.perfil = perfil; }
+
+    public boolean isPresenca() { return presenca; }
+    public void setPresenca(boolean presenca) { this.presenca = presenca; }
+
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getCpf() { return cpf; }
+    public void setCpf(String cpf) { this.cpf = cpf; }
+}
+
+public class RegistroTreino {
+    private int cod;
+    private String dataHora;
+    private int caloriasGastas;
+    private int frequenciaCardiaca;
+    private String comentarioInstrutor;
+    private int fkTreinoCod;
+    private int fkUsuarioCod;
+    private int fkInstrutorCod;
+
+    public int getCod() { return cod; }
+    public void setCod(int cod) { this.cod = cod; }
+
+    public String getDataHora() { return dataHora; }
+    public void setDataHora(String dataHora) { this.dataHora = dataHora; }
+
+    public int getCaloriasGastas() { return caloriasGastas; }
+    public void setCaloriasGastas(int caloriasGastas) { this.caloriasGastas = caloriasGastas; }
+
+    public int getFrequenciaCardiaca() { return frequenciaCardiaca; }
+    public void setFrequenciaCardiaca(int frequenciaCardiaca) { this.frequenciaCardiaca = frequenciaCardiaca; }
+
+    public String getComentarioInstrutor() { return comentarioInstrutor; }
+    public void setComentarioInstrutor(String comentarioInstrutor) { this.comentarioInstrutor = comentarioInstrutor; }
+
+    public int getFkTreinoCod() { return fkTreinoCod; }
+    public void setFkTreinoCod(int fkTreinoCod) { this.fkTreinoCod = fkTreinoCod; }
+
+    public int getFkUsuarioCod() { return fkUsuarioCod; }
+    public void setFkUsuarioCod(int fkUsuarioCod) { this.fkUsuarioCod = fkUsuarioCod; }
+
+    public int getFkInstrutorCod() { return fkInstrutorCod; }
+    public void setFkInstrutorCod(int fkInstrutorCod) { this.fkInstrutorCod = fkInstrutorCod; }
+}
