@@ -1,0 +1,83 @@
+ /* Lógico_1: */
+
+CREATE TABLE usuarios (
+    cod int PRIMARY KEY,
+    perfil varchar(100),
+    presenca boolean,
+    nome varchar(100),
+    cpf varchar(11)
+);
+
+CREATE TABLE registro_treinos (
+    cod int PRIMARY KEY,
+    data_hora datetime,
+    calorias_gastas int,
+    frequencia_cardiaca int,
+    comentario_instrutor varchar(100),
+    fk_treinos_cod int,
+    fk_usuarios_cod int,
+    fk_instrutor_cod int
+);
+
+CREATE TABLE treinos (
+    cod int PRIMARY KEY,
+    tipo varchar(100),
+    dia date,
+    quantidade int,
+    repeticoes int
+);
+
+CREATE TABLE equipamentos (
+    cod int PRIMARY KEY,
+    dados_aluno varchar(100),
+    data_manutencao date,
+    disponibilidade boolean,
+    tipo varchar(100)
+);
+
+CREATE TABLE instrutor (
+    cod int PRIMARY KEY,
+    id_instrutor int,
+    especialidade varchar(100),
+    cpf varchar(100),
+    nome varchar(100),
+    carga_horaria int,
+    email varchar(100),
+    disponibilidade boolean
+);
+
+CREATE TABLE academia (
+    cod int PRIMARY KEY,
+    cep varchar(100),
+    disponibilidade boolean,
+    ocupacao boolean
+);
+
+CREATE TABLE equip_treinos_equipamentos_registro_treinos (
+    cod int PRIMARY KEY,
+    fk_equipamentos_cod int,
+    fk_registro_treinos_cod int
+);
+ 
+ALTER TABLE registro_treinos ADD CONSTRAINT FK_registro_treinos_2
+    FOREIGN KEY (fk_treinos_cod)
+    REFERENCES treinos (cod)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE registro_treinos ADD CONSTRAINT FK_registro_treinos_3
+    FOREIGN KEY (fk_usuarios_cod)
+    REFERENCES usuarios (cod)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE registro_treinos ADD CONSTRAINT FK_registro_treinos_4
+    FOREIGN KEY (fk_instrutor_cod)
+    REFERENCES instrutor (cod)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE equip_treinos_equipamentos_registro_treinos ADD CONSTRAINT FK_equip_treinos_equipamentos_registro_treinos_2
+    FOREIGN KEY (fk_equipamentos_cod)
+    REFERENCES equipamentos (cod);
+ 
+ALTER TABLE equip_treinos_equipamentos_registro_treinos ADD CONSTRAINT FK_equip_treinos_equipamentos_registro_treinos_3
+    FOREIGN KEY (fk_registro_treinos_cod)
+    REFERENCES registro_treinos (cod);
